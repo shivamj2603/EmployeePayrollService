@@ -18,3 +18,5 @@ values
 ('Bill', 100000, '2018-01-03'),
 ('Terisa', 300000, '2019-12-03'),
 ('Charlie', 500000, '2020-02-03');
+#Usecase 4:
+select * from employee_payroll;	
