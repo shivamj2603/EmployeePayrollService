@@ -34,3 +34,10 @@ alter table employee_payroll add gender char(1)	after name;
 update employee_payroll
 set gender = 'M' where name = 'Bill' or name = 'Charlie';
 update employee_payroll set gender = 'F' where name = 'Terisa';
+
+#Usecase 7:
+select gender, sum(salary) from employee_payroll group by gender;
+select gender, avg(salary) from employee_payroll group by gender;
+select gender, min(salary) from employee_payroll group by gender;
+select gender, max(salary) from employee_payroll group by gender;
+select gender, count(*) from employee_payroll group by gender;
