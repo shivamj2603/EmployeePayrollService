@@ -61,3 +61,32 @@ update employee_payroll set department = 'Sales' where name = 'Terisa';
 insert into employee_payroll (name,phone, department, gender, basic_pay, deductions, taxable_pay, tax, net_pay, start) values
 ('Terisa', 9865326598, 'Marketing', 'F', 300000, 50000, 200000, 10000, 200000, '2019-12-03');
 
+#Usecase 11:
+alter table employee_payroll rename to employee;
+alter table employee rename column id to employeeId;
+create table employee_dept (
+employeeId int not null,
+departmentName varchar(100) not null,
+foreign key (employeeId) references employee(employeeId)
+);
+create table payroll (
+employeeId int not null,
+basic_pay double not null,
+deductions double not null,
+taxable_pay double not null,
+tax double not null,
+net_pay double not null,
+foreign key (employeeId) references employee(employeeId)
+);
+create table phone_numbers (
+employeeId int not null,
+phone numeric(10) not null,
+foreign key (employeeId) references employee(employeeId)
+);
+alter table employee
+drop column basic_pay,
+drop column deductions,
+drop column taxable_pay,
+drop column tax,
+drop column net_pay;
+
