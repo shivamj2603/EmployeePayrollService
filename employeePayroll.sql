@@ -20,3 +20,7 @@ values
 ('Charlie', 500000, '2020-02-03');
 #Usecase 4:
 select * from employee_payroll;	
+#Usecase 5:
+select salary from employee_payroll where name = 'Bill';
+select * from employee_payroll
+where start between cast('2020-01-01' as date) and date(now());
