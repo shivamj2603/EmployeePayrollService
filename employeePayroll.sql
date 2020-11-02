@@ -48,3 +48,10 @@ alter table employee_payroll
 add phone numeric(10) not null after name,
 add address varchar(200) not null default 'New York' after phone,
 add department varchar(200) not null after address;
+
+#Usecase 9:
+alter table employee_payroll rename column salary to basic_pay
+add deductions double not null after basic_pay, 
+add taxable_pay double not null after deductions, 
+add tax double not null after taxable_pay, 
+add net_pay double not null after tax;
